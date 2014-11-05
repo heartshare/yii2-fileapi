@@ -1,0 +1,113 @@
+
+@thumb-single-width: 400px;
+@thumb-single-height: 200px;
+
+@thumb-multiple-width: auto;
+@thumb-multiple-height: 150px;
+
+.faw-group {
+  clear: both;
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.faw-upload-button {
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+
+.faw-upload-button input[type="file"] {
+  cursor: pointer;
+  font-size: 50px;
+  opacity: 0;
+  position: absolute;
+  top: -10px;
+  right: -40px;
+  z-index: 2;
+}
+
+.faw-upload-button-dnd-text {
+  display: none;
+
+  .faw-dnd-hover & {
+    display: inline;
+  }
+}
+
+.faw-dnd-hover .faw-upload-button-default-text {
+  display: none;
+}
+
+.faw-group-progress {
+  .progress {
+    margin-bottom: 0;
+  }
+}
+
+.faw-preview {
+  float: left;
+  position: relative;
+
+  .faw-preview-delete {
+    display: none;
+  }
+
+  &:hover .faw-preview-delete {
+    display: block;
+  }
+}
+
+.faw-preview-delete {
+  background: #f38083;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.faw-preview-delete-icon {
+  position: absolute !important;
+  left: 50%;
+  top: 50% !important;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+.faw-canvas-container {
+  display: block;
+
+  canvas {
+    display: block;
+  }
+}
+
+.faw-container-single {
+  .faw-preview canvas {
+    max-width: @thumb-single-width;
+    max-height: @thumb-single-height;
+  }
+}
+
+.faw-container-multiple {
+  .faw-group-preview {
+    margin-bottom: 0;
+  }
+
+  .faw-preview {
+    margin: 0 15px 15px 0;
+
+    canvas {
+      max-width: @thumb-multiple-width;
+      max-height: @thumb-multiple-height;
+    }
+  }
+}

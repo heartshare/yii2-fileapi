@@ -1,0 +1,25 @@
+{
+	"name": "otsec/yii2-fileapi",
+    "keywords": ["yii2", "widget", "fileapi", "upload", "files", "multiupload"],
+    "type": "yii2-extension",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://github.com/otsec/yii2-fileapi/issues?state=open",
+        "source": "https://github.com/otsec/yii2-fileapi"
+    },
+    "authors": [
+        {
+            "name": "Artem Belov",
+            "email": "razor2909@gmail.com"
+        }
+    ],
+	"require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/jquery.fileapi": "*"
+	},
+    "autoload": {
+        "psr-4": {
+            "otsec\\yii2\\fileapi\\": "/"
+        }
+    }
+}
