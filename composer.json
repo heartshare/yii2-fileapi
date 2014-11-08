@@ -1,5 +1,5 @@
 {
-	"name": "otsec/yii2-fileapi",
+    "name": "otsec/yii2-fileapi",
     "keywords": ["yii2", "widget", "fileapi", "upload", "files", "multiupload"],
     "type": "yii2-extension",
     "minimum-stability": "dev",
@@ -13,10 +13,10 @@
             "email": "razor2909@gmail.com"
         }
     ],
-	"require": {
+    "require": {
         "yiisoft/yii2": "*",
         "bower-asset/jquery.fileapi": "*"
-	},
+    },
     "autoload": {
         "psr-4": {
             "otsec\\yii2\\fileapi\\": "/"
