@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
  */
 class WidgetAsset extends AssetBundle
 {
-    public $sourcePath = '@otsec/yii2-fileapi/assets';
+    public $sourcePath = '@vendor/otsec/yii2-fileapi/assets';
 
     public $css = [
         'yii2-fileapi.css',
