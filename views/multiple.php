@@ -21,37 +21,37 @@ use yii\web\JsExpression;
  */
 ?>
 
-<div class="faw-container faw-container-multiple" id="<?= $id; ?>">
+<div class="faw-container faw-container-multiple" id="<?= $id ?>">
     <?= Html::hiddenInput($attributeInputName, '', $widget->options) ?>
 
-    <div class="faw-group faw-group-preview" data-fileapi="list">
-        <a href="#" class="faw-preview" data-fileapi="file.tpl">
-            <span class="faw-preview-delete" data-fileapi="file.delete">
-                <span class="faw-preview-delete-icon glyphicon glyphicon-trash"></span>
-            </span>
-            <span class="faw-canvas-container" data-fileapi="file.preview"></span>
+    <div class="faw-group faw-group-preview js-fileapi-list">
+        <a href="#" class="faw-preview js-fileapi-file-tpl">
+        <span class="faw-preview-delete js-fileapi-file-delete">
+            <span class="faw-preview-delete-icon glyphicon glyphicon-trash"></span>
+        </span>
+            <span class="faw-canvas-container js-fileapi-file-preview"></span>
             <?= Html::hiddenInput($attributeInputName . '[]', '<%= name %>', $widget->options) ?>
         </a>
     </div>
 
-    <div class="faw-group faw-group-progress" data-fileapi="active.show">
+    <div class="faw-group faw-group-progress js-fileapi-active-show">
         <div class="progress progress-striped">
-            <div class="progress-bar progress-bar-info active" data-fileapi="progress"
+            <div class="progress-bar progress-bar-info active js-fileapi-progress"
                  role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
     </div>
 
-    <div class="faw-group faw-group-upload-button" data-fileapi="dnd">
-        <div class="faw-upload-button btn btn-default" data-fileapi="active.hide">
-            <span class="faw-upload-button-default-text">
-                <span class="glyphicon glyphicon-picture"></span>
-                Добавить изображения
-            </span>
+    <div class="faw-group faw-group-upload-button js-fileapi-dnd">
+        <div class="faw-upload-button btn btn-default js-fileapi-active-hide">
+        <span class="faw-upload-button-default-text">
+            <span class="glyphicon glyphicon-picture"></span>
+            Добавить изображения
+        </span>
 
-            <span class="faw-upload-button-dnd-text">
-                <span class="glyphicon glyphicon-arrow-down"></span>
-                Отпустите для начала загрузки
-            </span>
+        <span class="faw-upload-button-dnd-text">
+            <span class="glyphicon glyphicon-arrow-down"></span>
+            Отпустите для начала загрузки
+        </span>
 
             <?= Html::fileInput($fileInputName) ?>
         </div>
@@ -73,7 +73,7 @@ $this->registerJs('
 (function($) {
     var $container = $("#'.$id.'");
 
-    $container.on("click", "[data-fileapi=\"file.delete\"]", function(event) {
+    $container.on("click", ".js-fileapi-file-delete", function(event) {
         event.preventDefault();
         var fileId = $(this).parents("[data-fileapi-id]").data("fileapi-id");
         $container.fileapi("remove", fileId);

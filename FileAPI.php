@@ -45,29 +45,46 @@ class FileAPI extends InputWidget
     /**
      * @var array
      */
-    protected $defaultSettingsSingle = [
+    protected $defaultSettings = [
         'autoUpload' => true,
         'elements' => [
-            'preview' => [
-                'el' => '[data-fileapi="preview"]',
+            'ctrl' => [
+                'upload' => '.js-fileapi-ctrl-upload',
+                'reset' => '.js-fileapi-ctrl-reset',
+                'abort' => '.js-fileapi-ctrl-abort',
             ],
-            'dnd' => [
-                'hover' => 'faw-dnd-hover',
+            'empty' => [
+                'show' => '.js-fileapi-empty-show',
+                'hide' => '.js-fileapi-empty-hide',
             ],
-        ],
-    ];
-    /**
-     * @var array
-     */
-    protected $defaultSettingsMultiple = [
-        'autoUpload' => true,
-        'elements' => [
+            'emptyQueue' => [
+                'show' => '.js-fileapi-empty-queue-show',
+                'hide' => '.js-fileapi-empty-queue-hide',
+            ],
+            'active' => [
+                'show' => '.js-fileapi-active-show',
+                'hide' => '.js-fileapi-active-hide',
+            ],
+            'size' => '.js-fileapi-size',
+            'name' => '.js-fileapi-name',
+            'progress' => '.js-fileapi-progress',
+            'list' => '.js-fileapi-list',
             'file' => [
-                'preview' => [
-                    'el' => '[data-fileapi="file.preview"]',
+                'tpl' => '.js-fileapi-file-tpl',
+                'progress' => '.js-fileapi-file-progress',
+                'active' => [
+                    'show' => '.js-fileapi-file-active-show',
+                    'hide' => '.js-fileapi-file-active-hide'
                 ],
+                'preview' => [
+                    'el' => '.js-fileapi-file-preview',
+                ],
+                'abort' => '.js-fileapi-file-abort',
+                'remove' => '.js-fileapi-file-remove',
+                'rotate' => '.js-fileapi-file-rotate',
             ],
             'dnd' => [
+                'el' => '.js-fileapi-dnd',
                 'hover' => 'faw-dnd-hover',
             ],
         ],
@@ -80,10 +97,8 @@ class FileAPI extends InputWidget
     {
         if ($this->multiple) {
             $this->options['id'] = false;
-            $this->settings = ArrayHelper::merge($this->defaultSettingsMultiple, $this->settings);
             $this->template = ($this->template) ?: 'multiple';
         } else {
-            $this->settings = ArrayHelper::merge($this->defaultSettingsSingle, $this->settings);
             $this->template = ($this->template) ?: 'single';
         }
     }
@@ -128,11 +143,7 @@ class FileAPI extends InputWidget
      */
     public function registerSettings()
     {
-        $defaultSettings = ($this->multiple)
-            ? $this->defaultSettingsMultiple
-            : $this->defaultSettingsSingle;
-
-        $this->settings = ArrayHelper::merge($defaultSettings, $this->settings, [
+        $this->settings = ArrayHelper::merge($this->defaultSettings, $this->settings, [
             'multiple' => $this->multiple,
             'url' => Url::to($this->uploadUrl, true),
         ]);
