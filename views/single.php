@@ -42,7 +42,7 @@ use yii\web\JsExpression;
         <div class="faw-upload-button btn btn-default" data-fileapi="active.hide">
             <span class="faw-upload-button-default-text">
                 <span class="glyphicon glyphicon-picture"></span>
-                Добавить изображения
+                Добавить изображение
             </span>
 
             <span class="faw-upload-button-dnd-text">
