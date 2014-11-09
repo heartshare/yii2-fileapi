@@ -11,7 +11,7 @@ The preferred way to install this extension is through [composer](http://getcomp
     ...
 
     "require": {
-        "otsec/yii2-fileapi": "0.1.*"
+        "otsec/yii2-fileapi": "0.2.*"
     },
 
     "repositories": [
